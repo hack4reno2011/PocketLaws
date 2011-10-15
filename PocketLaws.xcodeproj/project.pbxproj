@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABBEFBFC144A29F300B13596 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFB144A29F300B13596 /* UIKit.framework */; };
+		ABBEFBFE144A29F300B13596 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFD144A29F300B13596 /* Foundation.framework */; };
+		ABBEFC00144A29F300B13596 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFF144A29F300B13596 /* CoreGraphics.framework */; };
+		ABBEFC02144A29F300B13596 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFC01144A29F300B13596 /* CoreData.framework */; };
+		ABBEFC08144A29F300B13596 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC06144A29F300B13596 /* InfoPlist.strings */; };
+		ABBEFC0A144A29F300B13596 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC09144A29F300B13596 /* main.m */; };
+		ABBEFC0E144A29F300B13596 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC0D144A29F300B13596 /* AppDelegate.m */; };
+		ABBEFC11144A29F300B13596 /* PocketLaws.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */; };
+		ABBEFC14144A29F300B13596 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC13144A29F300B13596 /* MasterViewController.m */; };
+		ABBEFC17144A29F300B13596 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC16144A29F300B13596 /* DetailViewController.m */; };
+		ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC18144A29F300B13596 /* MasterViewController.xib */; };
+		ABBEFC1D144A29F300B13596 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC1B144A29F300B13596 /* DetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ABBEFBF7144A29F300B13596 /* PocketLaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketLaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABBEFBFB144A29F300B13596 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ABBEFBFD144A29F300B13596 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABBEFBFF144A29F300B13596 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ABBEFC01144A29F300B13596 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ABBEFC05144A29F300B13596 /* PocketLaws-Info.plist */ = {isa = PBXFileReference; path = "PocketLaws-Info.plist"; sourceTree = "<group>"; };
+		ABBEFC07144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABBEFC09144A29F300B13596 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ABBEFC0B144A29F300B13596 /* PocketLaws-Prefix.pch */ = {isa = PBXFileReference; path = "PocketLaws-Prefix.pch"; sourceTree = "<group>"; };
+		ABBEFC0C144A29F300B13596 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		ABBEFC0D144A29F300B13596 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ABBEFC10144A29F300B13596 /* PocketLaws.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketLaws.xcdatamodel; sourceTree = "<group>"; };
+		ABBEFC12144A29F300B13596 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		ABBEFC13144A29F300B13596 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		ABBEFC15144A29F300B13596 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		ABBEFC16144A29F300B13596 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		ABBEFC19144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
+		ABBEFC1C144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABBEFBF4144A29F300B13596 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBEFBFC144A29F300B13596 /* UIKit.framework in Frameworks */,
+				ABBEFBFE144A29F300B13596 /* Foundation.framework in Frameworks */,
+				ABBEFC00144A29F300B13596 /* CoreGraphics.framework in Frameworks */,
+				ABBEFC02144A29F300B13596 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABBEFBEC144A29F300B13596 = {
+			isa = PBXGroup;
+			children = (
+				ABBEFC03144A29F300B13596 /* PocketLaws */,
+				ABBEFBFA144A29F300B13596 /* Frameworks */,
+				ABBEFBF8144A29F300B13596 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABBEFBF8144A29F300B13596 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABBEFBF7144A29F300B13596 /* PocketLaws.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABBEFBFA144A29F300B13596 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABBEFBFB144A29F300B13596 /* UIKit.framework */,
+				ABBEFBFD144A29F300B13596 /* Foundation.framework */,
+				ABBEFBFF144A29F300B13596 /* CoreGraphics.framework */,
+				ABBEFC01144A29F300B13596 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABBEFC03144A29F300B13596 /* PocketLaws */ = {
+			isa = PBXGroup;
+			children = (
+				ABBEFC0C144A29F300B13596 /* AppDelegate.h */,
+				ABBEFC0D144A29F300B13596 /* AppDelegate.m */,
+				ABBEFC12144A29F300B13596 /* MasterViewController.h */,
+				ABBEFC13144A29F300B13596 /* MasterViewController.m */,
+				ABBEFC15144A29F300B13596 /* DetailViewController.h */,
+				ABBEFC16144A29F300B13596 /* DetailViewController.m */,
+				ABBEFC18144A29F300B13596 /* MasterViewController.xib */,
+				ABBEFC1B144A29F300B13596 /* DetailViewController.xib */,
+				ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */,
+				ABBEFC04144A29F300B13596 /* Supporting Files */,
+			);
+			path = PocketLaws;
+			sourceTree = "<group>";
+		};
+		ABBEFC04144A29F300B13596 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABBEFC05144A29F300B13596 /* PocketLaws-Info.plist */,
+				ABBEFC06144A29F300B13596 /* InfoPlist.strings */,
+				ABBEFC09144A29F300B13596 /* main.m */,
+				ABBEFC0B144A29F300B13596 /* PocketLaws-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABBEFBF6144A29F300B13596 /* PocketLaws */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABBEFC20144A29F300B13596 /* Build configuration list for PBXNativeTarget "PocketLaws" */;
+			buildPhases = (
+				ABBEFBF3144A29F300B13596 /* Sources */,
+				ABBEFBF4144A29F300B13596 /* Frameworks */,
+				ABBEFBF5144A29F300B13596 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketLaws;
+			productName = PocketLaws;
+			productReference = ABBEFBF7144A29F300B13596 /* PocketLaws.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABBEFBEE144A29F300B13596 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Treeness, LLC";
+			};
+			buildConfigurationList = ABBEFBF1144A29F300B13596 /* Build configuration list for PBXProject "PocketLaws" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABBEFBEC144A29F300B13596;
+			productRefGroup = ABBEFBF8144A29F300B13596 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABBEFBF6144A29F300B13596 /* PocketLaws */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABBEFBF5144A29F300B13596 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBEFC08144A29F300B13596 /* InfoPlist.strings in Resources */,
+				ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */,
+				ABBEFC1D144A29F300B13596 /* DetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABBEFBF3144A29F300B13596 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBEFC0A144A29F300B13596 /* main.m in Sources */,
+				ABBEFC0E144A29F300B13596 /* AppDelegate.m in Sources */,
+				ABBEFC11144A29F300B13596 /* PocketLaws.xcdatamodeld in Sources */,
+				ABBEFC14144A29F300B13596 /* MasterViewController.m in Sources */,
+				ABBEFC17144A29F300B13596 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABBEFC06144A29F300B13596 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABBEFC07144A29F300B13596 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABBEFC18144A29F300B13596 /* MasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABBEFC19144A29F300B13596 /* en */,
+			);
+			name = MasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		ABBEFC1B144A29F300B13596 /* DetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABBEFC1C144A29F300B13596 /* en */,
+			);
+			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABBEFC1E144A29F300B13596 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ABBEFC1F144A29F300B13596 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ABBEFC21144A29F300B13596 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PocketLaws/PocketLaws-Prefix.pch";
+				INFOPLIST_FILE = "PocketLaws/PocketLaws-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ABBEFC22144A29F300B13596 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PocketLaws/PocketLaws-Prefix.pch";
+				INFOPLIST_FILE = "PocketLaws/PocketLaws-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABBEFBF1144A29F300B13596 /* Build configuration list for PBXProject "PocketLaws" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABBEFC1E144A29F300B13596 /* Debug */,
+				ABBEFC1F144A29F300B13596 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABBEFC20144A29F300B13596 /* Build configuration list for PBXNativeTarget "PocketLaws" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABBEFC21144A29F300B13596 /* Debug */,
+				ABBEFC22144A29F300B13596 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ABBEFC10144A29F300B13596 /* PocketLaws.xcdatamodel */,
+			);
+			currentVersion = ABBEFC10144A29F300B13596 /* PocketLaws.xcdatamodel */;
+			path = PocketLaws.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ABBEFBEE144A29F300B13596 /* Project object */;
+}
