@@ -19,6 +19,10 @@
 		ABBEFC17144A29F300B13596 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC16144A29F300B13596 /* DetailViewController.m */; };
 		ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC18144A29F300B13596 /* MasterViewController.xib */; };
 		ABBEFC1D144A29F300B13596 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC1B144A29F300B13596 /* DetailViewController.xib */; };
+		ABBEFC24144A2A0400B13596 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC23144A2A0400B13596 /* Icon@2x.png */; };
+		ABBEFC26144A2A0600B13596 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC25144A2A0600B13596 /* Icon.png */; };
+		ABBEFC28144A2A0F00B13596 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC27144A2A0F00B13596 /* Default.png */; };
+		ABBEFC2A144A2A1200B13596 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC29144A2A1200B13596 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,19 +31,23 @@
 		ABBEFBFD144A29F300B13596 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ABBEFBFF144A29F300B13596 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		ABBEFC01144A29F300B13596 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		ABBEFC05144A29F300B13596 /* PocketLaws-Info.plist */ = {isa = PBXFileReference; path = "PocketLaws-Info.plist"; sourceTree = "<group>"; };
+		ABBEFC05144A29F300B13596 /* PocketLaws-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PocketLaws-Info.plist"; sourceTree = "<group>"; };
 		ABBEFC07144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBEFC09144A29F300B13596 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ABBEFC0B144A29F300B13596 /* PocketLaws-Prefix.pch */ = {isa = PBXFileReference; path = "PocketLaws-Prefix.pch"; sourceTree = "<group>"; };
-		ABBEFC0C144A29F300B13596 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		ABBEFC0B144A29F300B13596 /* PocketLaws-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PocketLaws-Prefix.pch"; sourceTree = "<group>"; };
+		ABBEFC0C144A29F300B13596 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABBEFC0D144A29F300B13596 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ABBEFC10144A29F300B13596 /* PocketLaws.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketLaws.xcdatamodel; sourceTree = "<group>"; };
-		ABBEFC12144A29F300B13596 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		ABBEFC12144A29F300B13596 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		ABBEFC13144A29F300B13596 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		ABBEFC15144A29F300B13596 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		ABBEFC15144A29F300B13596 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ABBEFC16144A29F300B13596 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		ABBEFC19144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
 		ABBEFC1C144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		ABBEFC23144A2A0400B13596 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		ABBEFC25144A2A0600B13596 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		ABBEFC27144A2A0F00B13596 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		ABBEFC29144A2A1200B13596 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 		ABBEFBEC144A29F300B13596 = {
 			isa = PBXGroup;
 			children = (
+				ABBEFC29144A2A1200B13596 /* Default@2x.png */,
+				ABBEFC27144A2A0F00B13596 /* Default.png */,
+				ABBEFC25144A2A0600B13596 /* Icon.png */,
+				ABBEFC23144A2A0400B13596 /* Icon@2x.png */,
 				ABBEFC03144A29F300B13596 /* PocketLaws */,
 				ABBEFBFA144A29F300B13596 /* Frameworks */,
 				ABBEFBF8144A29F300B13596 /* Products */,
@@ -167,6 +179,10 @@
 				ABBEFC08144A29F300B13596 /* InfoPlist.strings in Resources */,
 				ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */,
 				ABBEFC1D144A29F300B13596 /* DetailViewController.xib in Resources */,
+				ABBEFC24144A2A0400B13596 /* Icon@2x.png in Resources */,
+				ABBEFC26144A2A0600B13596 /* Icon.png in Resources */,
+				ABBEFC28144A2A0F00B13596 /* Default.png in Resources */,
+				ABBEFC2A144A2A1200B13596 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
