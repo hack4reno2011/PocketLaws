@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
+@class Segment;
 
 #import <CoreData/CoreData.h>
 
@@ -18,5 +19,9 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) NSMutableArray *segments;
+
+- (Segment*)segmentForDictionary:(NSDictionary*)aDictionary;
 
 @end

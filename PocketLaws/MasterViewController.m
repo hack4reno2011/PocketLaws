@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "Segment.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -19,6 +20,7 @@
 @synthesize detailViewController = _detailViewController;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize segments = _segments;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +48,23 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"Laws" withExtension:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
+    
+    NSError *error;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    NSMutableArray *segments = [(NSDictionary*)jsonObject objectForKey:@"segments"];
+    self.segments = segments;
+    
+    
+    // TODO: Parents and Children
+    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self segmentForDictionary:(NSDictionary*)obj];
+    }];
+    
+    [self.managedObjectContext save:NULL];
+    
 }
 
 - (void)viewDidUnload
@@ -166,14 +185,14 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Segment" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"identifier" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -261,7 +280,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[managedObject valueForKey:@"identifier"] description];
 }
 
 - (void)insertNewObject
@@ -273,7 +292,7 @@
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    [newManagedObject setValue:[NSDate date] forKey:@"identifier"];
     
     // Save the context.
     NSError *error = nil;
@@ -287,5 +306,16 @@
         abort();
     }
 }
+
+// TODO: Parents and children
+- (Segment*)segmentForDictionary:(NSDictionary*)aDictionary
+{
+    Segment *newSegment = [NSEntityDescription insertNewObjectForEntityForName:@"Segment" inManagedObjectContext:self.managedObjectContext];
+    newSegment.identifier = [aDictionary objectForKey:@"id"];
+    newSegment.title = [aDictionary objectForKey:@"title"];
+    
+    return newSegment;
+}
+
 
 @end
