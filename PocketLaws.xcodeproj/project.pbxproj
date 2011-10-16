@@ -27,6 +27,7 @@
 		ABBEFC61144A711300B13596 /* SegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC60144A711300B13596 /* SegmentCell.xib */; };
 		ABBEFC67144A750100B13596 /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC66144A750100B13596 /* Segment.m */; };
 		ABBEFC6A144A751E00B13596 /* SegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC69144A751E00B13596 /* SegmentCell.m */; };
+		ABBEFC6C144AAE3800B13596 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC6B144AAE3700B13596 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		ABBEFC66144A750100B13596 /* Segment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Segment.m; sourceTree = "<group>"; };
 		ABBEFC68144A751E00B13596 /* SegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentCell.h; sourceTree = "<group>"; };
 		ABBEFC69144A751E00B13596 /* SegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentCell.m; sourceTree = "<group>"; };
+		ABBEFC6B144AAE3700B13596 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				ABBEFC5C144A5B7900B13596 /* DetailViewController.m */,
 				ABBEFC5D144A5B7900B13596 /* DetailViewController.xib */,
 				ABBEFC60144A711300B13596 /* SegmentCell.xib */,
+				ABBEFC6B144AAE3700B13596 /* HeaderView.xib */,
 				ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */,
 				ABBEFC65144A750100B13596 /* Segment.h */,
 				ABBEFC66144A750100B13596 /* Segment.m */,
@@ -201,6 +204,7 @@
 				ABBEFC2C144A2F6B00B13596 /* Laws.json in Resources */,
 				ABBEFC5F144A5B7900B13596 /* DetailViewController.xib in Resources */,
 				ABBEFC61144A711300B13596 /* SegmentCell.xib in Resources */,
+				ABBEFC6C144AAE3800B13596 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

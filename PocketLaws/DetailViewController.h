@@ -13,5 +13,7 @@
 
 @property (strong, nonatomic) Segment *detailItem;
 @property (strong, nonatomic) NSArray *childrenSegments;
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (strong, nonatomic) IBOutlet UITextView *contentTextView;
 
 @end

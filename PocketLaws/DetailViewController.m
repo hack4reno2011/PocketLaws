@@ -19,6 +19,8 @@
 
 @synthesize detailItem = _detailItem;
 @synthesize childrenSegments = _childrenSegments;
+@synthesize headerView = _headerView;
+@synthesize contentTextView = _contentTextView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -48,11 +50,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 }
 
 - (void)viewDidUnload
 {
+    [self setHeaderView:nil];
+    [self setContentTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -61,6 +64,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    UINib *headerNib = [UINib nibWithNibName:@"HeaderView" bundle:nil];
+    [headerNib instantiateWithOwner:self options:nil];
+    
+    NSLog(@"content %@", self.detailItem.content);
+    
+    if ([self.detailItem content]) {
+        [self.tableView setTableHeaderView:self.headerView];
+        [self.contentTextView setText:self.detailItem.content];
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -155,14 +168,9 @@
 {
     Segment *childSegment =  [self.childrenSegments objectAtIndex:indexPath.row];
     
-    if ([childSegment.children count] > 0) {
      DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
         detailViewController.detailItem = childSegment;
      [self.navigationController pushViewController:detailViewController animated:YES];
-    }
-    else {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
 }
 
 - (void)setDetailItem:(Segment *)detailItem

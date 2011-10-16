@@ -47,8 +47,13 @@
     
     NSFetchRequest *testForLoadedDataFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
     
-    if ([self.managedObjectContext countForFetchRequest:testForLoadedDataFetchRequest error:NULL]) return;
-    
+    if ([self.managedObjectContext countForFetchRequest:testForLoadedDataFetchRequest error:NULL]) {
+//        NSArray *segments = [self.managedObjectContext executeFetchRequest:testForLoadedDataFetchRequest error:NULL];
+//        [segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            NSLog(@"%@ %@", [obj title], [obj content]);
+//        }];
+        return;
+    }
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"Laws" withExtension:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
     
@@ -311,13 +316,27 @@
     }
 }
 
-// TODO: Parents and children
 - (Segment*)segmentForDictionary:(NSDictionary*)aDictionary
 {
     Segment *newSegment = [NSEntityDescription insertNewObjectForEntityForName:@"Segment" inManagedObjectContext:self.managedObjectContext];
-    newSegment.identifier = [aDictionary objectForKey:@"identifier"];
-    newSegment.title = [aDictionary objectForKey:@"title"];
-    newSegment.subtitle = [aDictionary objectForKey:@"subtitle"];
+    id identifier = [aDictionary objectForKey:@"identifier"];
+    if (identifier != [NSNull null]) {
+    newSegment.identifier = identifier;
+    }
+    id title = [aDictionary objectForKey:@"title"];
+    if (title != [NSNull null]) {
+        newSegment.title = title;
+    }
+    id subtitle =  [aDictionary objectForKey:@"subtitle"];
+    if (subtitle != [NSNull null]) {
+        newSegment.subtitle = subtitle;
+    }
+    id content = [aDictionary objectForKey:@"content"];
+    if (content != [NSNull null]) {
+        newSegment.content = content;
+    }
+    
+    NSLog(@"%@", content);
     return newSegment;
 }
 
