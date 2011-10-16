@@ -17,7 +17,6 @@
 
 @implementation MasterViewController
 
-@synthesize detailViewController = _detailViewController;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize segments = _segments;
@@ -49,6 +48,11 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    NSFetchRequest *testForLoadedDataFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
+    
+    if ([self.managedObjectContext countForFetchRequest:testForLoadedDataFetchRequest error:NULL]) return;
+    
+    
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"Laws" withExtension:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
     
@@ -60,17 +64,12 @@
     [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self segmentForDictionary:(NSDictionary*)obj];
     }];
-    NSLog(@"done");
+    
     [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self associateChildrenWithParents:obj];
     }];
     
     [self.managedObjectContext save:NULL];
-    
-    [[self.fetchedResultsController fetchedObjects] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSLog(@"Parent: %@\nChildren:%@", [obj parent], [obj children]);
-    }];
-    
 }
 
 - (void)viewDidUnload
@@ -171,12 +170,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.detailViewController) {
-        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    }
-    NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    self.detailViewController.detailItem = selectedObject;    
-    [self.navigationController pushViewController:self.detailViewController animated:YES];
+    Segment *selectedObject = (Segment*)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    
+    detailViewController.detailItem = selectedObject;    
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - Fetched results controller
@@ -324,11 +322,8 @@
 
 - (void)associateChildrenWithParents:(NSDictionary*)segmentDictionary
 {
-    NSLog(@"finished %@", segmentDictionary);
-
     NSFetchRequest *parentFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
     [parentFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", [segmentDictionary objectForKey:@"id"]]];
-    NSLog(@"finished 2 %@", segmentDictionary);
 
      NSError *error;
      NSArray *arrayContainingParent = [self.managedObjectContext executeFetchRequest:parentFetchRequest error:&error];
@@ -339,11 +334,10 @@
     }
     
     Segment *parentSegment = [arrayContainingParent lastObject];
-    
+        
     NSArray *childrenIdentifiers = (NSArray*)[segmentDictionary objectForKey:@"children"];
     [childrenIdentifiers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSError *error;
-        NSLog(@"finished 3 %@", segmentDictionary);
 
         NSString *childIdentifier = (NSString*)obj;
         NSFetchRequest *childFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
@@ -356,7 +350,8 @@
         }
         Segment *childSegment = [arrayContainingChild lastObject];
         childSegment.parent = parentSegment;
-    }];    
+    }];
+    
 }
 
 

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Segment;
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UITableViewController
 
-@property (strong, nonatomic) id detailItem;
-
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) Segment *detailItem;
+@property (strong, nonatomic) NSArray *childrenSegments;
 
 @end

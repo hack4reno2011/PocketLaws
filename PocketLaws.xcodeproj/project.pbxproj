@@ -16,15 +16,15 @@
 		ABBEFC0E144A29F300B13596 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC0D144A29F300B13596 /* AppDelegate.m */; };
 		ABBEFC11144A29F300B13596 /* PocketLaws.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */; };
 		ABBEFC14144A29F300B13596 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC13144A29F300B13596 /* MasterViewController.m */; };
-		ABBEFC17144A29F300B13596 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC16144A29F300B13596 /* DetailViewController.m */; };
 		ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC18144A29F300B13596 /* MasterViewController.xib */; };
-		ABBEFC1D144A29F300B13596 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC1B144A29F300B13596 /* DetailViewController.xib */; };
 		ABBEFC24144A2A0400B13596 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC23144A2A0400B13596 /* Icon@2x.png */; };
 		ABBEFC26144A2A0600B13596 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC25144A2A0600B13596 /* Icon.png */; };
 		ABBEFC28144A2A0F00B13596 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC27144A2A0F00B13596 /* Default.png */; };
 		ABBEFC2A144A2A1200B13596 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC29144A2A1200B13596 /* Default@2x.png */; };
 		ABBEFC2C144A2F6B00B13596 /* Laws.json in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC2B144A2F6A00B13596 /* Laws.json */; };
 		ABBEFC55144A4D1E00B13596 /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC54144A4D1E00B13596 /* Segment.m */; };
+		ABBEFC5E144A5B7900B13596 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC5C144A5B7900B13596 /* DetailViewController.m */; };
+		ABBEFC5F144A5B7900B13596 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC5D144A5B7900B13596 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +42,7 @@
 		ABBEFC10144A29F300B13596 /* PocketLaws.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketLaws.xcdatamodel; sourceTree = "<group>"; };
 		ABBEFC12144A29F300B13596 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		ABBEFC13144A29F300B13596 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		ABBEFC15144A29F300B13596 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		ABBEFC16144A29F300B13596 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		ABBEFC19144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
-		ABBEFC1C144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
 		ABBEFC23144A2A0400B13596 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		ABBEFC25144A2A0600B13596 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		ABBEFC27144A2A0F00B13596 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -53,6 +50,9 @@
 		ABBEFC2B144A2F6A00B13596 /* Laws.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laws.json; sourceTree = "<group>"; };
 		ABBEFC53144A4D1E00B13596 /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
 		ABBEFC54144A4D1E00B13596 /* Segment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Segment.m; sourceTree = "<group>"; };
+		ABBEFC5B144A5B7900B13596 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		ABBEFC5C144A5B7900B13596 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		ABBEFC5D144A5B7900B13596 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +109,10 @@
 				ABBEFC0D144A29F300B13596 /* AppDelegate.m */,
 				ABBEFC12144A29F300B13596 /* MasterViewController.h */,
 				ABBEFC13144A29F300B13596 /* MasterViewController.m */,
-				ABBEFC15144A29F300B13596 /* DetailViewController.h */,
-				ABBEFC16144A29F300B13596 /* DetailViewController.m */,
 				ABBEFC18144A29F300B13596 /* MasterViewController.xib */,
-				ABBEFC1B144A29F300B13596 /* DetailViewController.xib */,
+				ABBEFC5B144A5B7900B13596 /* DetailViewController.h */,
+				ABBEFC5C144A5B7900B13596 /* DetailViewController.m */,
+				ABBEFC5D144A5B7900B13596 /* DetailViewController.xib */,
 				ABBEFC53144A4D1E00B13596 /* Segment.h */,
 				ABBEFC54144A4D1E00B13596 /* Segment.m */,
 				ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */,
@@ -186,12 +186,12 @@
 			files = (
 				ABBEFC08144A29F300B13596 /* InfoPlist.strings in Resources */,
 				ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */,
-				ABBEFC1D144A29F300B13596 /* DetailViewController.xib in Resources */,
 				ABBEFC24144A2A0400B13596 /* Icon@2x.png in Resources */,
 				ABBEFC26144A2A0600B13596 /* Icon.png in Resources */,
 				ABBEFC28144A2A0F00B13596 /* Default.png in Resources */,
 				ABBEFC2A144A2A1200B13596 /* Default@2x.png in Resources */,
 				ABBEFC2C144A2F6B00B13596 /* Laws.json in Resources */,
+				ABBEFC5F144A5B7900B13596 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +206,8 @@
 				ABBEFC0E144A29F300B13596 /* AppDelegate.m in Sources */,
 				ABBEFC11144A29F300B13596 /* PocketLaws.xcdatamodeld in Sources */,
 				ABBEFC14144A29F300B13596 /* MasterViewController.m in Sources */,
-				ABBEFC17144A29F300B13596 /* DetailViewController.m in Sources */,
 				ABBEFC55144A4D1E00B13596 /* Segment.m in Sources */,
+				ABBEFC5E144A5B7900B13596 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,14 +228,6 @@
 				ABBEFC19144A29F300B13596 /* en */,
 			);
 			name = MasterViewController.xib;
-			sourceTree = "<group>";
-		};
-		ABBEFC1B144A29F300B13596 /* DetailViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABBEFC1C144A29F300B13596 /* en */,
-			);
-			name = DetailViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
