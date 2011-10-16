@@ -44,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = PLTintColor;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,10 +67,8 @@
     [super viewWillAppear:animated];
     UINib *headerNib = [UINib nibWithNibName:@"HeaderView" bundle:nil];
     [headerNib instantiateWithOwner:self options:nil];
-    
-    NSLog(@"content %@", self.detailItem.content);
-    
-    if ([self.detailItem content]) {
+        
+    if ([self.detailItem content] && [[self.detailItem content] isEqualToString:@"-"] == NO) {
         [self.tableView setTableHeaderView:self.headerView];
         [self.contentTextView setText:self.detailItem.content];
         [self.tableView reloadData];
@@ -102,13 +101,14 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [self.childrenSegments count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [self.childrenSegments count];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -176,6 +176,7 @@
 - (void)setDetailItem:(Segment *)detailItem
 {
     _detailItem = detailItem;
+    self.title = detailItem.title;
     self.childrenSegments = [[_detailItem children] allObjects];
 }
 

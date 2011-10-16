@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB730277144B341400389A88 /* PocketLaws.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AB730276144B341400389A88 /* PocketLaws.sqlite */; };
+		ABA5BC8D144B43F40001B669 /* testRAC.json in Resources */ = {isa = PBXBuildFile; fileRef = ABA5BC8C144B43F40001B669 /* testRAC.json */; };
 		ABBEFBFC144A29F300B13596 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFB144A29F300B13596 /* UIKit.framework */; };
 		ABBEFBFE144A29F300B13596 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFD144A29F300B13596 /* Foundation.framework */; };
 		ABBEFC00144A29F300B13596 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFF144A29F300B13596 /* CoreGraphics.framework */; };
@@ -28,9 +30,12 @@
 		ABBEFC67144A750100B13596 /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC66144A750100B13596 /* Segment.m */; };
 		ABBEFC6A144A751E00B13596 /* SegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC69144A751E00B13596 /* SegmentCell.m */; };
 		ABBEFC6C144AAE3800B13596 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC6B144AAE3700B13596 /* HeaderView.xib */; };
+		ABE979C3144B19F10098ED3A /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = ABE979C2144B19F10098ED3A /* iTunesArtwork */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB730276144B341400389A88 /* PocketLaws.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketLaws.sqlite; sourceTree = "<group>"; };
+		ABA5BC8C144B43F40001B669 /* testRAC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testRAC.json; sourceTree = "<group>"; };
 		ABBEFBF7144A29F300B13596 /* PocketLaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketLaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBEFBFB144A29F300B13596 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ABBEFBFD144A29F300B13596 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +65,7 @@
 		ABBEFC68144A751E00B13596 /* SegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentCell.h; sourceTree = "<group>"; };
 		ABBEFC69144A751E00B13596 /* SegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentCell.m; sourceTree = "<group>"; };
 		ABBEFC6B144AAE3700B13596 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		ABE979C2144B19F10098ED3A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,9 @@
 		ABBEFC04144A29F300B13596 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ABA5BC8C144B43F40001B669 /* testRAC.json */,
+				AB730276144B341400389A88 /* PocketLaws.sqlite */,
+				ABE979C2144B19F10098ED3A /* iTunesArtwork */,
 				ABBEFC05144A29F300B13596 /* PocketLaws-Info.plist */,
 				ABBEFC2B144A2F6A00B13596 /* Laws.json */,
 				ABBEFC06144A29F300B13596 /* InfoPlist.strings */,
@@ -205,6 +214,9 @@
 				ABBEFC5F144A5B7900B13596 /* DetailViewController.xib in Resources */,
 				ABBEFC61144A711300B13596 /* SegmentCell.xib in Resources */,
 				ABBEFC6C144AAE3800B13596 /* HeaderView.xib in Resources */,
+				ABE979C3144B19F10098ED3A /* iTunesArtwork in Resources */,
+				AB730277144B341400389A88 /* PocketLaws.sqlite in Resources */,
+				ABA5BC8D144B43F40001B669 /* testRAC.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +345,7 @@
 				ABBEFC22144A29F300B13596 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

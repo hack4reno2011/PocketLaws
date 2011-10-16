@@ -12,7 +12,7 @@
 #import "Segment.h"
 
 @interface MasterViewController ()
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)configureTableView:(UITableView*)aTableView cell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation MasterViewController
@@ -20,6 +20,7 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize segments = _segments;
+@synthesize filteredList = _filteredList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,34 +44,62 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     // Set up the edit and add buttons.
-
+    self.navigationController.navigationBar.tintColor = PLTintColor;
     
-    NSFetchRequest *testForLoadedDataFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
+    self.title = @"Sources";
+    /*
     
-    if ([self.managedObjectContext countForFetchRequest:testForLoadedDataFetchRequest error:NULL]) {
-//        NSArray *segments = [self.managedObjectContext executeFetchRequest:testForLoadedDataFetchRequest error:NULL];
-//        [segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//            NSLog(@"%@ %@", [obj title], [obj content]);
-//        }];
-        return;
-    }
-    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"Laws" withExtension:@"json"];
+    // Insert code here to initialize your application
+    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"testRAC" withExtension:@"json"];
+    
     NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
     
     NSError *error;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     NSMutableArray *segments = [(NSDictionary*)jsonObject objectForKey:@"segments"];
     self.segments = segments;
-        
+    
     [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self segmentForDictionary:(NSDictionary*)obj];
+        NSLog(@"segments");
     }];
     
     [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self associateChildrenWithParents:obj];
+        NSLog(@"associating");
     }];
     
     [self.managedObjectContext save:NULL];
+    
+     */
+    
+    
+//    NSFetchRequest *testForLoadedDataFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
+//    
+//    if ([self.managedObjectContext countForFetchRequest:testForLoadedDataFetchRequest error:NULL]) {
+////        NSArray *segments = [self.managedObjectContext executeFetchRequest:testForLoadedDataFetchRequest error:NULL];
+////        [segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+////            NSLog(@"%@ %@", [obj title], [obj content]);
+////        }];
+//        return;
+//    }
+//    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"Laws" withExtension:@"json"];
+//    NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
+//    
+//    NSError *error;
+//    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+//    NSMutableArray *segments = [(NSDictionary*)jsonObject objectForKey:@"segments"];
+//    self.segments = segments;
+//        
+//    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        [self segmentForDictionary:(NSDictionary*)obj];
+//    }];
+//    
+//    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        [self associateChildrenWithParents:obj];
+//    }];
+//    
+//    [self.managedObjectContext save:NULL];
 }
 
 - (void)viewDidUnload
@@ -109,18 +138,29 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }
+    else {
+        return [[self.fetchedResultsController sections] count];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filteredList count];
+    }
+    else {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        return [sectionInfo numberOfObjects];
+    }
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -129,7 +169,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
-    [self configureCell:cell atIndexPath:indexPath];
+    [self configureTableView:tableView cell:cell atIndexPath:indexPath];
     return cell;
 }
 
@@ -259,7 +299,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureTableView:tableView cell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -284,12 +324,18 @@
 }
  */
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureTableView:(UITableView*)aTableView cell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 {
-    Segment *segment = (Segment*)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = segment.title;
-    cell.detailTextLabel.text = segment.subtitle;
+    Segment *segment;
     
+    if (aTableView == self.searchDisplayController.searchResultsTableView) {
+        segment = (Segment*)[self.filteredList objectAtIndex:indexPath.row];
+    }
+    else {
+        segment = (Segment*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
+    cell.textLabel.text = segment.title;
+    cell.detailTextLabel.text = segment.subtitle;    
 }
 
 - (void)insertNewObject
@@ -336,45 +382,74 @@
         newSegment.content = content;
     }
     
-    NSLog(@"%@", content);
     return newSegment;
+}
+
+#pragma mark - UITableViewDataSource section title
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{ 
+    if (tableView == self.tableView) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        return [sectionInfo name];
+    }
+    return nil;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return tableView == self.tableView ? [self.fetchedResultsController sectionIndexTitles] : nil;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    return tableView == self.tableView ? [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index] : 0;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller 
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    return YES;
 }
 
 - (void)associateChildrenWithParents:(NSDictionary*)segmentDictionary
 {
     NSFetchRequest *parentFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
     [parentFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", [segmentDictionary objectForKey:@"identifier"]]];
-
-     NSError *error;
-     NSArray *arrayContainingParent = [self.managedObjectContext executeFetchRequest:parentFetchRequest error:&error];
+    
+    NSError *error;
+    NSArray *arrayContainingParent = [self.managedObjectContext executeFetchRequest:parentFetchRequest error:&error];
     
     if ([arrayContainingParent count] != 1) {
         NSLog(@"There are %i parent segments found. This should not happen", [arrayContainingParent count]);
+        [arrayContainingParent enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSLog(@"%@, %@", [obj identifier], [obj title]);
+        }];
         return;
     }
     
     Segment *parentSegment = [arrayContainingParent lastObject];
-        
+    
     NSArray *childrenIdentifiers = (NSArray*)[segmentDictionary objectForKey:@"children"];
     [childrenIdentifiers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSError *error;
-
+        
         NSString *childIdentifier = (NSString*)obj;
         NSFetchRequest *childFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
         [childFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", childIdentifier]];
         NSArray *arrayContainingChild = [self.managedObjectContext executeFetchRequest:childFetchRequest error:&error];
         
         if ([arrayContainingChild count] != 1) {
-            NSLog(@"There are %i child segments found. This should not happen", [arrayContainingParent count]);
-            return;
+            NSLog(@"There are %i child segments found. This should not happen", [arrayContainingChild count]);
+            [arrayContainingParent enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSLog(@"%@, %@", [obj identifier], [obj title]);
+            }];
         }
         Segment *childSegment = [arrayContainingChild lastObject];
         childSegment.parent = parentSegment;
     }];
     
 }
-
-
 
 
 @end

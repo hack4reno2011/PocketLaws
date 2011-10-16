@@ -18,6 +18,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (void)copyDefaultDatabaseIfNeeded;
 
 @property (strong, nonatomic) UINavigationController *navigationController;
 

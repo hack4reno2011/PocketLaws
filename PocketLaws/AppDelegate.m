@@ -135,6 +135,8 @@
         return __persistentStoreCoordinator;
     }
     
+    [self copyDefaultDatabaseIfNeeded];
+    
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PocketLaws.sqlite"];
     
     NSError *error = nil;
@@ -179,6 +181,22 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (void)copyDefaultDatabaseIfNeeded
+{
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PocketLaws.sqlite"];
+
+    NSError *error = nil;
+    
+    if ([fileManager fileExistsAtPath:[storeURL path]] == NO) {
+            NSString *defaultDatabasePath = [[NSBundle mainBundle] pathForResource:@"PocketLaws" ofType:@"sqlite"];
+            
+            if ([fileManager copyItemAtPath:defaultDatabasePath toPath:[storeURL path] error:&error] == NO) {
+                NSLog(@"Could not copy default database to %@\n%@", [storeURL path], [error localizedDescription]);
+            }    
+    }
 }
 
 @end
