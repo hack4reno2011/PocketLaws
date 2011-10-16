@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * content;
+@property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) Segment *parent;
 @property (nonatomic, retain) NSSet *children;
 @end

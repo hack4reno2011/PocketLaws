@@ -15,6 +15,7 @@
 @dynamic identifier;
 @dynamic title;
 @dynamic content;
+@dynamic subtitle;
 @dynamic parent;
 @dynamic children;
 

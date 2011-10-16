@@ -1,30 +1,32 @@
 {
 	"segments": [
 		{
-			"id": "NEVADA REVISED STATUTES",
+			"identifier": "NEVADA REVISED STATUTES",
 			"title": "NEVADA REVISED STATUTES",
 			"children": [
 				"TITLE 43"
 			]
 		},
 		{
-			"id": "TITLE 43",
-			"title": "PUBLIC SAFETY; VEHICLES; WATERCRAFT",
+			"identifier": "TITLE 43",
+			"title": "TITLE 43",
+			"subtitle": "PUBLIC SAFETY; VEHICLES; WATERCRAFT",
 			"children": [
 				"CHAPTER 484B"
 			],
 			"parent": "NEVADA REVISED STATUTES"
 		},
 		{
-			"id": "CHAPTER 484B",
-			"title": "RULES OF THE ROAD",
+			"identifier": "CHAPTER 484B",
+			"title": "CHAPTER 484B",
+			"subtitle": "RULES OF THE ROAD",
 			"children": [
 				"CHAPTER 484B||SPECIAL STOPS"
 			],
 			"parent": "TITLE 43"
 		},
 		{
-			"id": "CHAPTER 484B||SPECIAL STOPS",
+			"identifier": "CHAPTER 484B||SPECIAL STOPS",
 			"title": "SPECIAL STOPS",
 			"children": [
 				"CHAPTER 484B||SPECIAL STOPS||Signal by Peace Officer"
@@ -32,7 +34,7 @@
 			"parent": "CHAPTER 484B"
 		},
 		{
-			"id": "CHAPTER 484B||SPECIAL STOPS||Signal by Peace Officer",
+			"identifier": "CHAPTER 484B||SPECIAL STOPS||Signal by Peace Officer",
 			"title": "Signal by Peace Officer",
 			"children": [
 				"NRS 484B.550"
@@ -40,7 +42,7 @@
 			"parent": "CHAPTER 484B||SPECIAL STOPS"
 		},
 		{
-			"id": "NRS 484B.550",
+			"identifier": "NRS 484B.550",
 			"aliases": ["NRS 484B.550||1."],
 			"title": "Stop required upon signal of peace officer; manner in which signal must be given; penalties.",
 			"content": "      1.  Except as otherwise provided in this section, the driver of a motor vehicle who willfully fails or refuses to bring the vehicle to a stop, or who otherwise flees or attempts to elude a peace officer in a readily identifiable vehicle of any police department or regulatory agency, when given a signal to bring the vehicle to a stop is guilty of a misdemeanor.\n      2.  The signal by the peace officer described in subsection 1 must be by flashing red lamp and siren.\n      3.  Unless the provisions of NRS 484B.653 apply if, while violating the provisions of subsection 1, the driver of the motor vehicle:\n      (a) Is the proximate cause of damage to the property of any other person; or\n      (b) Operates the motor vehicle in a manner which endangers or is likely to endanger any other person or the property of any other person,\nÊ the driver is guilty of a category B felony and shall be punished by imprisonment in the state prison for a minimum term of not less than 1 year and a maximum term of not more than 6 years, or by a fine of not more than $5,000, or by both fine and imprisonment.\n      4.  If, while violating the provisions of subsection 1, the driver of the motor vehicle is the proximate cause of the death of or bodily harm to any other person, the driver is guilty of a category B felony and shall be punished by imprisonment in the state prison for a minimum term of not less than 2 years and a maximum term of not more than 20 years, or by a fine of not more than $50,000, or by both fine and imprisonment.\n      5.  If the driver of the motor vehicle is convicted of a violation of NRS 484C.110 or 484C.120 arising out of the same act or transaction as a violation of subsection 1, the driver is guilty of a category D felony and shall be punished as provided in NRS 193.130 for the violation of subsection 1.\n      (Added to NRS by 1975, 320; A 1979, 1805; 1981, 533; 1983, 1014; 1985, 26; 1989, 1194; 1993, 524; 1995, 1297, 1725; 1997, 547; 2003, 487; 2007, 2728; 2009, 1866)—(Substituted in revision for NRS 484.348)",

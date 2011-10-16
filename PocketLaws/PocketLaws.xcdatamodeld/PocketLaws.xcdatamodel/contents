@@ -3,11 +3,12 @@
     <entity name="Segment" representedClassName="Segment">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Segment" inverseName="parent" inverseEntity="Segment" syncable="YES"/>
         <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Segment" inverseName="children" inverseEntity="Segment" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Segment" positionX="261" positionY="189" width="128" height="120"/>
+        <element name="Segment" positionX="261" positionY="189" width="128" height="135"/>
     </elements>
 </model>

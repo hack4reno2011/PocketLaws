@@ -43,15 +43,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     // Set up the edit and add buttons.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
-    self.navigationItem.rightBarButtonItem = addButton;
     
     NSFetchRequest *testForLoadedDataFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
     
     if ([self.managedObjectContext countForFetchRequest:testForLoadedDataFetchRequest error:NULL]) return;
-    
     
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"Laws" withExtension:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
@@ -124,7 +120,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
@@ -132,14 +128,13 @@
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -191,6 +186,9 @@
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Segment" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    NSPredicate *hasParentPredicate = [NSPredicate predicateWithFormat:@"parent == nil"];
+    [fetchRequest setPredicate:hasParentPredicate];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -283,8 +281,10 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"identifier"] description];
+    Segment *segment = (Segment*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = segment.title;
+    cell.detailTextLabel.text = segment.subtitle;
+    
 }
 
 - (void)insertNewObject
@@ -315,15 +315,16 @@
 - (Segment*)segmentForDictionary:(NSDictionary*)aDictionary
 {
     Segment *newSegment = [NSEntityDescription insertNewObjectForEntityForName:@"Segment" inManagedObjectContext:self.managedObjectContext];
-    newSegment.identifier = [aDictionary objectForKey:@"id"];
+    newSegment.identifier = [aDictionary objectForKey:@"identifier"];
     newSegment.title = [aDictionary objectForKey:@"title"];
+    newSegment.subtitle = [aDictionary objectForKey:@"subtitle"];
     return newSegment;
 }
 
 - (void)associateChildrenWithParents:(NSDictionary*)segmentDictionary
 {
     NSFetchRequest *parentFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
-    [parentFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", [segmentDictionary objectForKey:@"id"]]];
+    [parentFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", [segmentDictionary objectForKey:@"identifier"]]];
 
      NSError *error;
      NSArray *arrayContainingParent = [self.managedObjectContext executeFetchRequest:parentFetchRequest error:&error];
@@ -345,7 +346,7 @@
         NSArray *arrayContainingChild = [self.managedObjectContext executeFetchRequest:childFetchRequest error:&error];
         
         if ([arrayContainingChild count] != 1) {
-            NSLog(@"There are %i parent segments found. This should not happen", [arrayContainingParent count]);
+            NSLog(@"There are %i child segments found. This should not happen", [arrayContainingParent count]);
             return;
         }
         Segment *childSegment = [arrayContainingChild lastObject];

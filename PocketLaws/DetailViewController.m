@@ -9,6 +9,11 @@
 #import "DetailViewController.h"
 #import "Segment.h"
 
+@interface DetailViewController ()
+
+- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath;
+
+@end
 
 @implementation DetailViewController
 
@@ -99,22 +104,20 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-    [cell.textLabel setText:[[self.childrenSegments objectAtIndex:indexPath.row] title]];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
-*/
+
 
 /*
 // Override to support editing the table view.
@@ -150,13 +153,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
+    Segment *childSegment =  [self.childrenSegments objectAtIndex:indexPath.row];
+    
+    if ([childSegment.children count] > 0) {
+     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+        detailViewController.detailItem = childSegment;
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    }
+    else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
 
 - (void)setDetailItem:(Segment *)detailItem
@@ -164,5 +170,21 @@
     _detailItem = detailItem;
     self.childrenSegments = [[_detailItem children] allObjects];
 }
+
+- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
+    Segment *segment = [self.childrenSegments objectAtIndex:indexPath.row];
+    cell.textLabel.text = segment.title;
+    cell.detailTextLabel.text = segment.subtitle;
+    Segment *childSegment =  [self.childrenSegments objectAtIndex:indexPath.row];
+    
+    if ([childSegment.children count] > 0) {
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+}
+
 
 @end
