@@ -24,7 +24,7 @@
 		ABBEFC28144A2A0F00B13596 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC27144A2A0F00B13596 /* Default.png */; };
 		ABBEFC2A144A2A1200B13596 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC29144A2A1200B13596 /* Default@2x.png */; };
 		ABBEFC2C144A2F6B00B13596 /* Laws.json in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC2B144A2F6A00B13596 /* Laws.json */; };
-		ABBEFC4F144A40F500B13596 /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC4E144A40F500B13596 /* Segment.m */; };
+		ABBEFC55144A4D1E00B13596 /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC54144A4D1E00B13596 /* Segment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +51,8 @@
 		ABBEFC27144A2A0F00B13596 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ABBEFC29144A2A1200B13596 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ABBEFC2B144A2F6A00B13596 /* Laws.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laws.json; sourceTree = "<group>"; };
-		ABBEFC4D144A40F500B13596 /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
-		ABBEFC4E144A40F500B13596 /* Segment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Segment.m; sourceTree = "<group>"; };
+		ABBEFC53144A4D1E00B13596 /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
+		ABBEFC54144A4D1E00B13596 /* Segment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Segment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +113,9 @@
 				ABBEFC16144A29F300B13596 /* DetailViewController.m */,
 				ABBEFC18144A29F300B13596 /* MasterViewController.xib */,
 				ABBEFC1B144A29F300B13596 /* DetailViewController.xib */,
+				ABBEFC53144A4D1E00B13596 /* Segment.h */,
+				ABBEFC54144A4D1E00B13596 /* Segment.m */,
 				ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */,
-				ABBEFC4D144A40F500B13596 /* Segment.h */,
-				ABBEFC4E144A40F500B13596 /* Segment.m */,
 				ABBEFC04144A29F300B13596 /* Supporting Files */,
 			);
 			path = PocketLaws;
@@ -207,7 +207,7 @@
 				ABBEFC11144A29F300B13596 /* PocketLaws.xcdatamodeld in Sources */,
 				ABBEFC14144A29F300B13596 /* MasterViewController.m in Sources */,
 				ABBEFC17144A29F300B13596 /* DetailViewController.m in Sources */,
-				ABBEFC4F144A40F500B13596 /* Segment.m in Sources */,
+				ABBEFC55144A4D1E00B13596 /* Segment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

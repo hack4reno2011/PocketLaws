@@ -23,5 +23,6 @@
 @property (strong, nonatomic) NSMutableArray *segments;
 
 - (Segment*)segmentForDictionary:(NSDictionary*)aDictionary;
+- (void)associateChildrenWithParents:(NSDictionary*)segmentDictionary;
 
 @end

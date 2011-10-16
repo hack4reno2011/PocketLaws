@@ -56,14 +56,20 @@
     id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     NSMutableArray *segments = [(NSDictionary*)jsonObject objectForKey:@"segments"];
     self.segments = segments;
-    
-    
-    // TODO: Parents and Children
+        
     [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self segmentForDictionary:(NSDictionary*)obj];
     }];
+    NSLog(@"done");
+    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self associateChildrenWithParents:obj];
+    }];
     
     [self.managedObjectContext save:NULL];
+    
+    [[self.fetchedResultsController fetchedObjects] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"Parent: %@\nChildren:%@", [obj parent], [obj children]);
+    }];
     
 }
 
@@ -313,9 +319,47 @@
     Segment *newSegment = [NSEntityDescription insertNewObjectForEntityForName:@"Segment" inManagedObjectContext:self.managedObjectContext];
     newSegment.identifier = [aDictionary objectForKey:@"id"];
     newSegment.title = [aDictionary objectForKey:@"title"];
-    
     return newSegment;
 }
+
+- (void)associateChildrenWithParents:(NSDictionary*)segmentDictionary
+{
+    NSLog(@"finished %@", segmentDictionary);
+
+    NSFetchRequest *parentFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
+    [parentFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", [segmentDictionary objectForKey:@"id"]]];
+    NSLog(@"finished 2 %@", segmentDictionary);
+
+     NSError *error;
+     NSArray *arrayContainingParent = [self.managedObjectContext executeFetchRequest:parentFetchRequest error:&error];
+    
+    if ([arrayContainingParent count] != 1) {
+        NSLog(@"There are %i parent segments found. This should not happen", [arrayContainingParent count]);
+        return;
+    }
+    
+    Segment *parentSegment = [arrayContainingParent lastObject];
+    
+    NSArray *childrenIdentifiers = (NSArray*)[segmentDictionary objectForKey:@"children"];
+    [childrenIdentifiers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSError *error;
+        NSLog(@"finished 3 %@", segmentDictionary);
+
+        NSString *childIdentifier = (NSString*)obj;
+        NSFetchRequest *childFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
+        [childFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", childIdentifier]];
+        NSArray *arrayContainingChild = [self.managedObjectContext executeFetchRequest:childFetchRequest error:&error];
+        
+        if ([arrayContainingChild count] != 1) {
+            NSLog(@"There are %i parent segments found. This should not happen", [arrayContainingParent count]);
+            return;
+        }
+        Segment *childSegment = [arrayContainingChild lastObject];
+        childSegment.parent = parentSegment;
+    }];    
+}
+
+
 
 
 @end
