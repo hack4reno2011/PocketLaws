@@ -49,58 +49,6 @@
     self.title = @"Sources";
     
     self.filteredList = [NSMutableArray arrayWithCapacity:10];
-    
-    /*
-    // Insert code here to initialize your application
-    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"testRAC" withExtension:@"json"];
-    
-    NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
-    
-    NSError *error;
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-    NSMutableArray *segments = [(NSDictionary*)jsonObject objectForKey:@"segments"];
-    self.segments = segments;
-    
-    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self segmentForDictionary:(NSDictionary*)obj];
-        NSLog(@"segments");
-    }];
-    
-    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self associateChildrenWithParents:obj];
-        NSLog(@"associating");
-    }];
-    
-    [self.managedObjectContext save:NULL];
-    */
-    
-    
-//    NSFetchRequest *testForLoadedDataFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
-//    
-//    if ([self.managedObjectContext countForFetchRequest:testForLoadedDataFetchRequest error:NULL]) {
-////        NSArray *segments = [self.managedObjectContext executeFetchRequest:testForLoadedDataFetchRequest error:NULL];
-////        [segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-////            NSLog(@"%@ %@", [obj title], [obj content]);
-////        }];
-//        return;
-//    }
-//    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"Laws" withExtension:@"json"];
-//    NSData *jsonData = [NSData dataWithContentsOfURL:fileURL];
-//    
-//    NSError *error;
-//    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-//    NSMutableArray *segments = [(NSDictionary*)jsonObject objectForKey:@"segments"];
-//    self.segments = segments;
-//        
-//    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        [self segmentForDictionary:(NSDictionary*)obj];
-//    }];
-//    
-//    [self.segments enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        [self associateChildrenWithParents:obj];
-//    }];
-//    
-//    [self.managedObjectContext save:NULL];
 }
 
 - (void)viewDidUnload
@@ -467,8 +415,6 @@
     [self.filteredList removeAllObjects]; // First clear the filtered array.
     
     NSFetchRequest *leafFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
-    //NSPredicate *leafPredicate = [NSPredicate predicateWithFormat:@"children == nil"];
-    //[leafFetchRequest setPredicate:leafPredicate];
     [leafFetchRequest setFetchBatchSize:20];
     [leafFetchRequest setFetchLimit:500];
     
