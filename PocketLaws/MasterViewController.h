@@ -23,5 +23,6 @@
 
 - (Segment*)segmentForDictionary:(NSDictionary*)aDictionary;
 - (void)associateChildrenWithParents:(NSDictionary*)segmentDictionary;
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
 
 @end

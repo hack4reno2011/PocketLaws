@@ -68,7 +68,7 @@
     UINib *headerNib = [UINib nibWithNibName:@"HeaderView" bundle:nil];
     [headerNib instantiateWithOwner:self options:nil];
         
-    if ([self.detailItem content] && [[self.detailItem content] isEqualToString:@"-"] == NO) {
+    if ([self.detailItem content] && [[self.detailItem content] isEqualToString:@"-"] == NO &&  [[self.detailItem content] isEqualToString:@""] == NO) {
         [self.tableView setTableHeaderView:self.headerView];
         [self.contentTextView setText:self.detailItem.content];
         [self.tableView reloadData];
@@ -177,7 +177,8 @@
 {
     _detailItem = detailItem;
     self.title = detailItem.title;
-    self.childrenSegments = [[_detailItem children] allObjects];
+    [self.navigationItem setPrompt:_detailItem.subtitle];
+    self.childrenSegments = [_detailItem.children sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]];
 }
 
 - (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath

@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AB730277144B341400389A88 /* PocketLaws.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AB730276144B341400389A88 /* PocketLaws.sqlite */; };
-		ABA5BC8D144B43F40001B669 /* testRAC.json in Resources */ = {isa = PBXBuildFile; fileRef = ABA5BC8C144B43F40001B669 /* testRAC.json */; };
+		ABA5BC8D144B43F40001B669 /* RAC.json in Resources */ = {isa = PBXBuildFile; fileRef = ABA5BC8C144B43F40001B669 /* RAC.json */; };
+		ABA5BC93144B67240001B669 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABA5BC92144B67240001B669 /* Icon.png */; };
+		ABA5BC95144B67260001B669 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABA5BC94144B67260001B669 /* Icon@2x.png */; };
 		ABBEFBFC144A29F300B13596 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFB144A29F300B13596 /* UIKit.framework */; };
 		ABBEFBFE144A29F300B13596 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFD144A29F300B13596 /* Foundation.framework */; };
 		ABBEFC00144A29F300B13596 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBEFBFF144A29F300B13596 /* CoreGraphics.framework */; };
@@ -19,23 +21,22 @@
 		ABBEFC11144A29F300B13596 /* PocketLaws.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC0F144A29F300B13596 /* PocketLaws.xcdatamodeld */; };
 		ABBEFC14144A29F300B13596 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC13144A29F300B13596 /* MasterViewController.m */; };
 		ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC18144A29F300B13596 /* MasterViewController.xib */; };
-		ABBEFC24144A2A0400B13596 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC23144A2A0400B13596 /* Icon@2x.png */; };
-		ABBEFC26144A2A0600B13596 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC25144A2A0600B13596 /* Icon.png */; };
 		ABBEFC28144A2A0F00B13596 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC27144A2A0F00B13596 /* Default.png */; };
 		ABBEFC2A144A2A1200B13596 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC29144A2A1200B13596 /* Default@2x.png */; };
-		ABBEFC2C144A2F6B00B13596 /* Laws.json in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC2B144A2F6A00B13596 /* Laws.json */; };
+		ABBEFC2C144A2F6B00B13596 /* NRS.json in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC2B144A2F6A00B13596 /* NRS.json */; };
 		ABBEFC5E144A5B7900B13596 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC5C144A5B7900B13596 /* DetailViewController.m */; };
 		ABBEFC5F144A5B7900B13596 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC5D144A5B7900B13596 /* DetailViewController.xib */; };
 		ABBEFC61144A711300B13596 /* SegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC60144A711300B13596 /* SegmentCell.xib */; };
 		ABBEFC67144A750100B13596 /* Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC66144A750100B13596 /* Segment.m */; };
 		ABBEFC6A144A751E00B13596 /* SegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBEFC69144A751E00B13596 /* SegmentCell.m */; };
 		ABBEFC6C144AAE3800B13596 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBEFC6B144AAE3700B13596 /* HeaderView.xib */; };
-		ABE979C3144B19F10098ED3A /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = ABE979C2144B19F10098ED3A /* iTunesArtwork */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB730276144B341400389A88 /* PocketLaws.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketLaws.sqlite; sourceTree = "<group>"; };
-		ABA5BC8C144B43F40001B669 /* testRAC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testRAC.json; sourceTree = "<group>"; };
+		ABA5BC8C144B43F40001B669 /* RAC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RAC.json; sourceTree = "<group>"; };
+		ABA5BC92144B67240001B669 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		ABA5BC94144B67260001B669 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		ABBEFBF7144A29F300B13596 /* PocketLaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketLaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBEFBFB144A29F300B13596 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ABBEFBFD144A29F300B13596 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,11 +52,9 @@
 		ABBEFC12144A29F300B13596 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		ABBEFC13144A29F300B13596 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		ABBEFC19144A29F300B13596 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
-		ABBEFC23144A2A0400B13596 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		ABBEFC25144A2A0600B13596 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		ABBEFC27144A2A0F00B13596 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ABBEFC29144A2A1200B13596 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		ABBEFC2B144A2F6A00B13596 /* Laws.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laws.json; sourceTree = "<group>"; };
+		ABBEFC2B144A2F6A00B13596 /* NRS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NRS.json; sourceTree = "<group>"; };
 		ABBEFC5B144A5B7900B13596 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ABBEFC5C144A5B7900B13596 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		ABBEFC5D144A5B7900B13596 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -65,7 +64,6 @@
 		ABBEFC68144A751E00B13596 /* SegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentCell.h; sourceTree = "<group>"; };
 		ABBEFC69144A751E00B13596 /* SegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentCell.m; sourceTree = "<group>"; };
 		ABBEFC6B144AAE3700B13596 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		ABE979C2144B19F10098ED3A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,13 +81,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB48D368144BB7A60090F4BF /* Raw JSON */ = {
+			isa = PBXGroup;
+			children = (
+				ABA5BC8C144B43F40001B669 /* RAC.json */,
+				ABBEFC2B144A2F6A00B13596 /* NRS.json */,
+			);
+			name = "Raw JSON";
+			sourceTree = "<group>";
+		};
 		ABBEFBEC144A29F300B13596 = {
 			isa = PBXGroup;
 			children = (
+				ABA5BC94144B67260001B669 /* Icon@2x.png */,
+				ABA5BC92144B67240001B669 /* Icon.png */,
 				ABBEFC29144A2A1200B13596 /* Default@2x.png */,
 				ABBEFC27144A2A0F00B13596 /* Default.png */,
-				ABBEFC25144A2A0600B13596 /* Icon.png */,
-				ABBEFC23144A2A0400B13596 /* Icon@2x.png */,
 				ABBEFC03144A29F300B13596 /* PocketLaws */,
 				ABBEFBFA144A29F300B13596 /* Frameworks */,
 				ABBEFBF8144A29F300B13596 /* Products */,
@@ -141,11 +148,9 @@
 		ABBEFC04144A29F300B13596 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ABA5BC8C144B43F40001B669 /* testRAC.json */,
+				AB48D368144BB7A60090F4BF /* Raw JSON */,
 				AB730276144B341400389A88 /* PocketLaws.sqlite */,
-				ABE979C2144B19F10098ED3A /* iTunesArtwork */,
 				ABBEFC05144A29F300B13596 /* PocketLaws-Info.plist */,
-				ABBEFC2B144A2F6A00B13596 /* Laws.json */,
 				ABBEFC06144A29F300B13596 /* InfoPlist.strings */,
 				ABBEFC09144A29F300B13596 /* main.m */,
 				ABBEFC0B144A29F300B13596 /* PocketLaws-Prefix.pch */,
@@ -206,17 +211,16 @@
 			files = (
 				ABBEFC08144A29F300B13596 /* InfoPlist.strings in Resources */,
 				ABBEFC1A144A29F300B13596 /* MasterViewController.xib in Resources */,
-				ABBEFC24144A2A0400B13596 /* Icon@2x.png in Resources */,
-				ABBEFC26144A2A0600B13596 /* Icon.png in Resources */,
 				ABBEFC28144A2A0F00B13596 /* Default.png in Resources */,
 				ABBEFC2A144A2A1200B13596 /* Default@2x.png in Resources */,
-				ABBEFC2C144A2F6B00B13596 /* Laws.json in Resources */,
+				ABBEFC2C144A2F6B00B13596 /* NRS.json in Resources */,
 				ABBEFC5F144A5B7900B13596 /* DetailViewController.xib in Resources */,
 				ABBEFC61144A711300B13596 /* SegmentCell.xib in Resources */,
 				ABBEFC6C144AAE3800B13596 /* HeaderView.xib in Resources */,
-				ABE979C3144B19F10098ED3A /* iTunesArtwork in Resources */,
 				AB730277144B341400389A88 /* PocketLaws.sqlite in Resources */,
-				ABA5BC8D144B43F40001B669 /* testRAC.json in Resources */,
+				ABA5BC8D144B43F40001B669 /* RAC.json in Resources */,
+				ABA5BC93144B67240001B669 /* Icon.png in Resources */,
+				ABA5BC95144B67260001B669 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

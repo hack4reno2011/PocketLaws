@@ -47,8 +47,10 @@
     self.navigationController.navigationBar.tintColor = PLTintColor;
     
     self.title = @"Sources";
-    /*
     
+    self.filteredList = [NSMutableArray arrayWithCapacity:10];
+    
+    /*
     // Insert code here to initialize your application
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"testRAC" withExtension:@"json"];
     
@@ -70,8 +72,7 @@
     }];
     
     [self.managedObjectContext save:NULL];
-    
-     */
+    */
     
     
 //    NSFetchRequest *testForLoadedDataFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
@@ -210,7 +211,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Segment *selectedObject = (Segment*)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    Segment *selectedObject;
+    
+    if (tableView == self.tableView) {
+        selectedObject = (Segment*)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    }
+    else {
+        selectedObject = (Segment*)[self.filteredList objectAtIndex:indexPath.row];    
+    }
     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     
     detailViewController.detailItem = selectedObject;    
@@ -239,7 +247,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"identifier" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -406,9 +414,9 @@
     return tableView == self.tableView ? [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index] : 0;
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller 
-shouldReloadTableForSearchString:(NSString *)searchString
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
+    [self filterContentForSearchText:searchString scope:nil];
     return YES;
 }
 
@@ -451,5 +459,32 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
 }
 
+#pragma mark -
+#pragma mark Content Filtering
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    [self.filteredList removeAllObjects]; // First clear the filtered array.
+    
+    NSFetchRequest *leafFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Segment"];
+    //NSPredicate *leafPredicate = [NSPredicate predicateWithFormat:@"children == nil"];
+    //[leafFetchRequest setPredicate:leafPredicate];
+    [leafFetchRequest setFetchBatchSize:20];
+    [leafFetchRequest setFetchLimit:500];
+    
+    NSArray *allObjects = [self.managedObjectContext executeFetchRequest:leafFetchRequest error:NULL];
+    
+    for (Segment *segment in allObjects) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF contains[cd] %@)", searchText];
+        
+
+        BOOL matches = [predicate evaluateWithObject:segment.subtitle];
+        
+        if (matches) {
+            [self.filteredList addObject:segment];
+        }
+
+    }
+}
 
 @end
